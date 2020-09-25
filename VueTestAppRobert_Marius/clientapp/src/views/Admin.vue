@@ -1,5 +1,5 @@
 <template>
     <div class="admin">
-        <h1>This is the Contractor page</h1>
+        <h1>This is the Admin page</h1>
     </div>
 </template>
