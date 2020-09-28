@@ -3,17 +3,14 @@
     <h1>Licitations:</h1>
     <ul>
         <li v-for="licitation in licitations" :key="licitation.id" style="display: flex;">
-            <div>Id: {{licitation.id}}</div>
-            <div style="margin-left: 10px; margin-right: 10px;"> | </div>
-            <div>Summary: {{licitation.summary}}</div>
-            <div style="margin-left: 10px; margin-right: 10px;"> | </div>
-            <div>Date Posted: {{licitation.date}}</div>
+            <Licitation :canSendOffer="true" :licitation="licitation"/>
         </li>
     </ul>
   </div>
 </template>
 
 <script>
+    import Licitation from '@/components/Licitation.vue'
     export default {
         data() {
             return {
@@ -26,6 +23,9 @@
             }).then((jsonData) => {
                 this.licitations = jsonData;
             })
+        },
+        components: {
+            Licitation
         }
     }
 </script>

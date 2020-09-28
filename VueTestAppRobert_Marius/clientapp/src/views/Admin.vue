@@ -8,17 +8,14 @@
         <h1>My licitations</h1>
         <ul>
             <li v-for="licitation in licitations" :key="licitation.id" style="display: flex;">
-                <div>Id: {{licitation.id}}</div>
-                <div style="margin-left: 10px; margin-right: 10px;"> | </div>
-                <div>Summary: {{licitation.summary}}</div>
-                <div style="margin-left: 10px; margin-right: 10px;"> | </div>
-                <div>Date Posted: {{licitation.date}}</div>
+                <Licitation :canSendOffer="false" :licitation="licitation" />
             </li>
         </ul>
     </div>
 </template>
 
 <script>
+    import Licitation from '@/components/Licitation.vue'
     export default {
         data() {
             return {
@@ -51,6 +48,9 @@
                     this.licitations.push(jsonData);
                 })
             }
+        },
+        components: {
+            Licitation
         }
     }
 </script>
